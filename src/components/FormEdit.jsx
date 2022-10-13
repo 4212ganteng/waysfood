@@ -1,12 +1,9 @@
 import React from "react";
-import Addinput from "./Addinput";
-import Navbarwf from "./Navbarwf";
+import Addinput from "../pages/Addinput";
 
 const FormEdit = ({ title, Location, hp }) => {
   return (
     <>
-      <Navbarwf />
-
       <div className="container">
         <h2>{title}</h2>
         <h2 className="mb-3">Edit Profile</h2>

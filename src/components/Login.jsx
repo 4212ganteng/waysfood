@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Login = ({ a }) => {
+const Login = ({ a, setShow }) => {
   return (
     <div>
       <div className="container">
@@ -26,14 +26,16 @@ const Login = ({ a }) => {
             />
           </div>
 
-          <Link to="/welcome">
-            <button
-              class="btn btn-dark float-end mb-5  mt-3"
-              onClick={() => a(true)}
-            >
-              Login
-            </button>
-          </Link>
+          <button
+            class="btn btn-dark float-end mb-5  mt-3"
+            onClick={(e) => {
+              e.preventDefault();
+              a(true);
+              setShow(false);
+            }}
+          >
+            Login
+          </button>
         </form>
       </div>
     </div>

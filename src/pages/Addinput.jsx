@@ -2,16 +2,21 @@ import React from "react";
 
 const Addinput = ({ a, b }) => {
   return (
-    <div>
+    <div className="container mt-5">
+      <h3 className="my-5">Add Product</h3>
       <div className="input-group mb-3">
         <input
           type="text"
           className="form-control"
-          placeholder={a}
+          placeholder={a ? a : "Title"}
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
         />
-        <label class="input-group-text ms-2" for="inputGroupFile01">
+        <label
+          className="input-group-text rounded text-white ms-3"
+          for="inputGroupFile01"
+          style={{ backgroundColor: "#433434" }}
+        >
           Attach Image
         </label>
         <input
@@ -30,7 +35,7 @@ const Addinput = ({ a, b }) => {
           type="email"
           class="form-control"
           id="exampleFormControlInput1"
-          placeholder={b}
+          placeholder={b ? b : "Price"}
         />
       </div>
     </div>

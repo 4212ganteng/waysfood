@@ -2,7 +2,7 @@ import React from "react";
 import { bensu as menus } from "../dumy/bensu/menus";
 import { Link } from "react-router-dom";
 
-const Bensudb = () => {
+const Bensudb = ({ a }) => {
   return (
     <div className="container">
       <h2>Geprek Bensu, Menus</h2>
@@ -22,7 +22,7 @@ const Bensudb = () => {
                 </h6>
                 <Link to="#">
                   <button className="btn btn-warning w-100">
-                    Add To Chart
+                    {a ? a : " Add To Chart"}
                   </button>
                 </Link>
               </div>

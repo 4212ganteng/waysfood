@@ -1,7 +1,7 @@
 import { Modal } from "react-bootstrap";
 import Login from "./Login";
 
-const Modalawal = ({ show, setShow, a }) => {
+const Modalawal = ({ abc, setShow, a }) => {
   const handleClose = () => setShow(false);
   // handlenav
 
@@ -10,8 +10,8 @@ const Modalawal = ({ show, setShow, a }) => {
       {/* <Button variant="primary" onClick={handleShow}>
         Launch demo modal
       </Button> */}
-      <Modal show={show} onHide={handleClose}>
-        <Login a={a} />
+      <Modal show={abc} onHide={handleClose}>
+        <Login a={a} setShow={setShow} />
       </Modal>
     </>
   );

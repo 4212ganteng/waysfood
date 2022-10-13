@@ -1,25 +1,24 @@
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
-import logo1 from "../assets/images/logo1.svg";
 import { Link } from "react-router-dom";
 import Modalawal from "./Modalawal";
 import { useState } from "react";
 import ModalRegis from "./ModalRegis";
 import keranjang from "../assets/images/keranjang.svg";
 import pp from "../assets/images/ppnavbar.svg";
+import logo1 from "../assets/images/logoBrand.svg";
 
 const Navbarwf = () => {
-  const [show, setShow] = useState(false);
+  const [tampil, setShow] = useState(false);
   const [regist, setregist] = useState(false);
   // validasi navbar
   const [isLogin, setLogin] = useState(false);
 
   return (
-    <Navbar style={{ backgroundColor: "#FFC700" }} className="mb-5">
+    <Navbar style={{ backgroundColor: "#FFC700" }}>
       <Container>
         <Navbar.Brand>
           <Link to="/">
-            WaysFood
             <img src={logo1} alt="" className="ms-2" />
           </Link>
         </Navbar.Brand>
@@ -63,7 +62,7 @@ const Navbarwf = () => {
           </div>
         </Navbar.Collapse>
       </Container>
-      <Modalawal show={show} setShow={setShow} a={setLogin} />
+      <Modalawal abc={tampil} setShow={setShow} a={setLogin} />
       <ModalRegis pregist={regist} psetregist={setregist} />
     </Navbar>
   );

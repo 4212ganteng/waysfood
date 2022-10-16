@@ -1,60 +1,67 @@
 import React from "react";
+import { Button, Form, Modal } from "react-bootstrap";
+import Formatoms from "./Formatoms";
 
-const Register = () => {
+function Register({ show, setShow, setShowLogin }) {
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
-    <div className="container">
-      <h2>Register</h2>
-      <form action="/login" method="post">
-        <div class="mb-3">
-          <input
-            type="email"
-            class="form-control border-0 shadow p-2 w-100 rounded"
-            id="input-email"
-            placeholder="Email"
-            name="email"
-          />
-        </div>
-        <div class="mb-3">
-          <input
-            type="password"
-            class="form-control border-0 shadow p-2 w-100 rounded"
-            id="input-password"
-            placeholder="Password"
-            name="password"
-          />
-        </div>
-        <div class="mb-3">
-          <input
-            type="text"
-            class="form-control border-0 shadow p-2 w-100 rounded"
-            id="input-password"
-            placeholder="Full Name"
-            name="password"
-          />
-        </div>
-        <div class="mb-3">
-          <input
-            type="text"
-            class="form-control border-0 shadow p-2 w-100 rounded"
-            id="input-password"
-            placeholder="Gender"
-            name="password"
-          />
-        </div>
-        <div class="mb-3">
-          <input
-            type="text"
-            class="form-control border-0 shadow p-2 w-100 rounded"
-            id="input-password"
-            placeholder="Phone"
-            name="password"
-          />
-        </div>
-
-        <button class="btn btn-dark float-end mb-5  mt-3">submit</button>
-      </form>
-    </div>
+    <>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Body>
+          <form>
+            <div className="text-yellow m-3">
+              <h2>Register</h2>
+            </div>
+            <div>
+              <Formatoms label="Email" type="email" placeholder="Email" />
+              <Formatoms label="Email" type="password" placeholder="password" />
+              <Formatoms
+                label="Full Name"
+                type="text"
+                placeholder="Full Name"
+              />
+              <Form.Select aria-label="Default select example m-3">
+                <option>Gender</option>
+                <option value="1">Laki-Laki</option>
+                <option value="2">Perempuan</option>
+              </Form.Select>
+              <Formatoms
+                label="Phone Number"
+                type="number"
+                placeholder="Phone Number"
+                className="mt-3"
+              />
+              <Form.Select aria-label="Default select example m-3">
+                <option hidden>Role</option>
+                <option value="1">User</option>
+                <option value="2">Patner</option>
+              </Form.Select>
+            </div>
+          </form>
+          <Button
+            onClick={() => setShow(false)}
+            className="btn-order btn-nav mt-3"
+          >
+            Register
+          </Button>
+          <p className="mt-3">
+            Already have an account ? Klik{" "}
+            <span
+              className="fw-bold"
+              onClick={() => {
+                setShow(false);
+                setShowLogin(true);
+              }}
+            >
+              Here
+            </span>
+          </p>
+        </Modal.Body>
+      </Modal>
+    </>
   );
-};
+}
 
 export default Register;

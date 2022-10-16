@@ -1,10 +1,10 @@
 import React from "react";
-import Bensudb from "../components/Bensudb";
+import BensuMenu from "../pages/Partner/Bensu/Bensumenu";
 
 const Tesa = () => {
   return (
     <div>
-      <Bensudb a="apaloooo" />
+      <BensuMenu a="apaloooo" />
     </div>
   );
 };

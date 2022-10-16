@@ -1,6 +1,7 @@
 import React from "react";
 import gambar from "../assets/images/nasgor.svg";
 import sampah from "../assets/images/sampah.svg";
+import Input2 from "../components/Inputbtn";
 
 const Abc = () => {
   return (
@@ -12,27 +13,11 @@ const Abc = () => {
             Delivery Location
           </p>
           <div className="container">
-            <div className="row d-flex">
-              <div className="col-md-9 form-floating">
-                <input
-                  type="text"
-                  class="form-control h-75 "
-                  id="floatingPassword"
-                  placeholder="abcljlkjl"
-                />
-                <label for="floatingPassword text-center">
-                  Harbour Building
-                </label>
-              </div>
-              <div className="col-md-2">
-                <button
-                  className="w-100 py-2 rounded text-white"
-                  style={{ backgroundColor: "#433434" }}
-                >
-                  Select On Map
-                </button>
-              </div>
-            </div>
+            <Input2
+              type="text"
+              name="Harbour Building"
+              namebtn="Select On Map"
+            />
           </div>
         </div>
         <div className="row">

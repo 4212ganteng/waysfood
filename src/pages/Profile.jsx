@@ -1,8 +1,10 @@
 import React from "react";
 import propil from "../assets/images/propil.svg";
 import logo1 from "../assets/images/logoBrand.svg";
+import { useNavigate } from "react-router-dom";
 
 const Profile = ({ title, nama1, email, namep, names }) => {
+  const navigate = useNavigate();
   return (
     <div>
       <div className="container">
@@ -14,6 +16,7 @@ const Profile = ({ title, nama1, email, namep, names }) => {
                 <div className="col" style={{ maxWidth: "200px" }}>
                   <img src={propil} alt="" className="rounded" />
                   <button
+                    onClick={() => navigate("/edit-profile")}
                     className="w-100 mt-3 py-1 rounded   text-white"
                     style={{ backgroundColor: "#433434" }}
                   >

@@ -1,4 +1,5 @@
 import React from "react";
+import KompBtn from "../../../components/KompBtn";
 
 const Addinput = ({ a, b }) => {
   return (
@@ -37,6 +38,9 @@ const Addinput = ({ a, b }) => {
           id="exampleFormControlInput1"
           placeholder={b ? b : "Price"}
         />
+      </div>
+      <div className="d-flex justify-content-end">
+        <KompBtn name="Save" />
       </div>
     </div>
   );

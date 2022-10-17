@@ -1,6 +1,6 @@
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import keranjang from "../assets/images/keranjang.svg";
 import pp from "../assets/images/ppnavbar.svg";
@@ -23,6 +23,10 @@ const Navbarwf = () => {
 
   // state from cart order
   const [totalCart, dispatch] = useContext(Cartreducer);
+
+  const navigate = useNavigate();
+  const a = "/cart";
+  const b = "/gas-buy";
 
   return (
     <Navbar style={{ backgroundColor: "#FFC700" }}>
@@ -57,13 +61,13 @@ const Navbarwf = () => {
             ) : userRole == "user" ? (
               <>
                 <div>
-                  <Link to="/cart">
+                  <Link to={totalCart <= 0 ? b : a}>
                     <img src={keranjang} alt="" className="mt-3 " />
                     <Badge
                       className="position-absolute rounded mt-2"
                       bg="danger"
                     >
-                      {totalCart}
+                      {totalCart <= 0 ? 0 : totalCart}
                     </Badge>
                   </Link>
                 </div>
@@ -95,7 +99,12 @@ const Navbarwf = () => {
                         <hr />
                       </div>
 
-                      <Dropdown.Item onClick={() => setLogin(false)}>
+                      <Dropdown.Item
+                        onClick={() => {
+                          setLogin(false);
+                          navigate("/");
+                        }}
+                      >
                         <img
                           src={logout}
                           alt=""
@@ -148,7 +157,12 @@ const Navbarwf = () => {
                       <hr />
                     </div>
 
-                    <Dropdown.Item onClick={() => setLogin(false)}>
+                    <Dropdown.Item
+                      onClick={() => {
+                        navigate("/");
+                        setLogin(false);
+                      }}
+                    >
                       <img
                         src={logout}
                         alt=""

@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useContext, useReducer, useState } from "react";
 import gambar from "../assets/images/nasgor.svg";
 import sampah from "../assets/images/sampah.svg";
 import Input2 from "../components/Inputbtn";
+import { Modal } from "react-bootstrap";
+import map2 from "../assets/images/Maps2.svg";
+import { Cartreducer } from "../usereducer/Cartreducer";
 
 const Abc = () => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  // a
+  const [totalCart, dispatch] = useContext(Cartreducer);
+
   return (
     <>
       <div className="container">
@@ -17,6 +28,9 @@ const Abc = () => {
               type="text"
               name="Harbour Building"
               namebtn="Select On Map"
+              onClick={() => {
+                setShow(true);
+              }}
             />
           </div>
         </div>
@@ -36,20 +50,24 @@ const Abc = () => {
                 <div className="col-md">
                   <div className="fw-bold">ayam bakar</div>
                   <div className="row w-50 mt-2">
-                    <div className="col-md">-</div>
+                    <div className="col-md" onClick={() => dispatch("minus")}>
+                      -
+                    </div>
                     <div
                       className="col-md rounded "
                       style={{ backgroundColor: "#F6E6DA" }}
                     >
-                      2
+                      {totalCart}
                     </div>
-                    <div className="col-md">+</div>
+                    <div className="col-md" onClick={() => dispatch("add")}>
+                      +
+                    </div>
                   </div>
                 </div>
                 <div className="col-md">
                   <div>
                     <div className="text-danger ">Rp.12.000 </div>
-                    <div className="mt-2">
+                    <div className="mt-2" onClick={() => dispatch("reset")}>
                       <img src={sampah} alt="" />
                     </div>
                   </div>
@@ -224,6 +242,11 @@ const Abc = () => {
           >
             Order
           </button>
+          <Modal size="xl" show={show} onHide={handleClose}>
+            <Modal.Body>
+              <img src={map2} alt="" className="w-100" />
+            </Modal.Body>
+          </Modal>
         </div>
       </div>
     </>

@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import PopularResto from "./components/PopularResto";
 import NearResto from "./components/NearResto";
 import { useNavigate } from "react-router-dom";
+import Kfcmenus from "./pages/Partner/kfc/Kfcmenus";
 // import Hero from "./testing/Hero";
 
 function App() {

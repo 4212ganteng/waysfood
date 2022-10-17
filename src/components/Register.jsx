@@ -16,7 +16,11 @@ function Register({ show, setShow, setShowLogin }) {
             </div>
             <div>
               <Formatoms label="Email" type="email" placeholder="Email" />
-              <Formatoms label="Email" type="password" placeholder="password" />
+              <Formatoms
+                label="password"
+                type="password"
+                placeholder="password"
+              />
               <Formatoms
                 label="Full Name"
                 type="text"

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = ({ type, name, namebtn }) => {
+const Input = ({ type, name, namebtn, onClick }) => {
   return (
     <div className="row d-flex">
       <div className="col-md-9 form-floating">
@@ -18,6 +18,7 @@ const Input = ({ type, name, namebtn }) => {
         <button
           className=" w-100 py-2 rounded text-white "
           style={{ backgroundColor: "#433434" }}
+          onClick={onClick}
         >
           {namebtn}
         </button>

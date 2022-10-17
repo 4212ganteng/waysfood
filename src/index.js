@@ -12,6 +12,11 @@ import ProfilePart from "./pages/Partner/Bensu/ProfilePart";
 import Addinput from "./pages/Partner/Bensu/AddProduk";
 import Income from "./pages/Partner/Bensu/Income";
 import { CartreducerProvider } from "./usereducer/Cartreducer";
+import Jcomenus from "./pages/Partner/jco/Jcomenus";
+import Sbuxmenus from "./pages/Partner/sbux/Sbuxmenus";
+import Kfcmenus from "./pages/Partner/kfc/Kfcmenus";
+import Bkmenus from "./pages/Partner/Bk/Bkmenus";
+import Nocart from "./components/Nocart";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 function AppRouter() {
@@ -28,6 +33,14 @@ function AppRouter() {
           <Route path="/edit-profile" element={<FormEdit />} />
           <Route path="/add-product" element={<Addinput />} />
           <Route path="/income" element={<Income />} />
+
+          {/* partner */}
+
+          <Route path="/jco" element={<Jcomenus />} />
+          <Route path="/starbucks" element={<Sbuxmenus />} />
+          <Route path="/kfc" element={<Kfcmenus />} />
+          <Route path="/burger-king" element={<Bkmenus />} />
+          <Route path="/gas-buy" element={<Nocart />} />
         </Routes>
       </Router>
     </CartreducerProvider>

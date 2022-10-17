@@ -10,6 +10,10 @@ const Login = ({
   setIsLogin,
   setUserRole,
 }) => {
+  // flash message
+
+  const [message, setmessage] = useState("");
+
   const handleClose = () => setShow(false);
 
   const [userLogin, setUserLogin] = useState({
@@ -19,30 +23,29 @@ const Login = ({
   });
 
   function successLogin(email, password) {
-    let statusMessage;
     const emailCheck = User.filter((field) => field.email === email);
 
     if (emailCheck.length === 0) {
-      statusMessage = "Email belum terdaftar";
+      setmessage("Email belum terdaftar");
       return {
         status: false,
-        message: statusMessage,
+        message: message,
       };
     }
 
     const result = User.filter((field) => field.password === password);
 
     if (result.length === 0) {
-      statusMessage = "Password Anda Salah";
+      setmessage("Password Anda Salah");
       return {
         status: false,
-        message: statusMessage,
+        message: message,
       };
     }
-    statusMessage = "Login success";
+    setmessage("Login success");
     return {
       status: true,
-      message: statusMessage,
+      message: message,
       user: result[0],
     };
   }
@@ -51,6 +54,8 @@ const Login = ({
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Body>
+          <p>{message}</p>
+
           <Form>
             <div className="text-yellow m-3">
               <h2>Login</h2>
